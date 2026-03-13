@@ -55,7 +55,6 @@
       "label": "docker: up",
       "type": "shell",
       "command": "docker compose up --build -d",
-      "group": "build",
       "presentation": {
         "reveal": "always",
         "panel": "shared"
@@ -65,7 +64,6 @@
       "label": "docker: down",
       "type": "shell",
       "command": "docker compose down",
-      "group": "build",
       "presentation": {
         "reveal": "always",
         "panel": "shared"
