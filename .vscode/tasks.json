@@ -1,0 +1,75 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "go: run",
+      "type": "shell",
+      "command": "go run ./cmd/api",
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "problemMatcher": "$go"
+    },
+    {
+      "label": "go: build",
+      "type": "shell",
+      "command": "go build -o bin/api ./cmd/api",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": "$go"
+    },
+    {
+      "label": "go: test",
+      "type": "shell",
+      "command": "go test ./... -v -cover",
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": "$go"
+    },
+    {
+      "label": "go: vet",
+      "type": "shell",
+      "command": "go vet ./...",
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": "$go"
+    },
+    {
+      "label": "docker: up",
+      "type": "shell",
+      "command": "docker compose up --build -d",
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "docker: down",
+      "type": "shell",
+      "command": "docker compose down",
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      }
+    }
+  ]
+}

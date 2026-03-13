@@ -1,0 +1,18 @@
+{
+  "go.useLanguageServer": true,
+  "go.lintTool": "golangci-lint",
+  "go.lintOnSave": "package",
+  "go.vetOnSave": "package",
+  "go.formatTool": "goimports",
+  "go.testOnSave": false,
+  "go.coverOnSave": false,
+  "go.coverOnTestPackage": true,
+  "go.testFlags": ["-v", "-cover"],
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "explicit"
+  },
+  "files.exclude": {
+    "bin/": true
+  }
+}
