@@ -21,22 +21,25 @@ public class CpfService : ICpfService
 {
     private readonly HttpClient _httpClient;
     private readonly ILogger<CpfService> _logger;
+    private readonly IConfiguration _configuration;
 
     private static readonly JsonSerializerOptions JsonOptions = new()
     {
         PropertyNameCaseInsensitive = true
     };
 
-    public CpfService(HttpClient httpClient, ILogger<CpfService> logger)
+    public CpfService(HttpClient httpClient, ILogger<CpfService> logger, IConfiguration configuration)
     {
         _httpClient = httpClient;
         _logger = logger;
+        _configuration = configuration;
     }
 
     public async Task<CpfResponse> ConsultarAsync(string cpf, CancellationToken cancellationToken = default)
     {
         var digits = CpfValidator.Strip(cpf);
-        var url = digits;
+        var token = _configuration["ReceitaWsToken"];
+        var url = string.IsNullOrWhiteSpace(token) ? digits : $"{digits}?token={token}";
 
         _logger.LogInformation("Consultando CPF {Cpf}", MaskCpf(digits));
 
