@@ -60,7 +60,4 @@ app.MapGet("/consulta/cpf/{cpf}", async (
     }
 });
 
-var port = builder.Configuration["PORT"] ?? "8080";
-app.Urls.Add($"http://+:{port}");
-
 app.Run();
