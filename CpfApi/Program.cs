@@ -108,3 +108,5 @@ app.MapGet("/consulta/cnpj/{**cnpj}", async (
 });
 
 app.Run();
+
+public partial class Program { }
