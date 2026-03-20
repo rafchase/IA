@@ -71,7 +71,7 @@ app.MapGet("/consulta/cpf/{cpf}", async (
 });
 
 // CNPJ lookup
-app.MapGet("/consulta/cnpj/{cnpj}", async (
+app.MapGet("/consulta/cnpj/{**cnpj}", async (
     string cnpj,
     ICnpjService cnpjService,
     ILogger<Program> logger,
